@@ -95,10 +95,21 @@ gulp.task('copyVendor', ['cleanDist'], function() {
 })
 
 gulp.task('copySourceFiles', ['cleanDist'], function() {
-    gulp.src(['home.html', 'index.html', 'partials/**'])
+    gulp.src(['html/**'])
         .pipe(flatten())
         .pipe(gulp.dest('dist/'))
 
+    gulp.src(['img/**', ])
+        .pipe(gulp.dest('dist/img'))
+
+    gulp.src(['res/Callum_May_Resume_2016.pdf', ])
+        .pipe(gulp.dest('dist/'))
+
+    gulp.src(['app.config.js', 'app.module.js', 'jqBootstrapValidation.js', 'contact_me.js'], {
+            cwd: 'js/'
+        })
+        .pipe(flatten())
+        .pipe(gulp.dest('dist/'))
 
 })
 
@@ -106,16 +117,16 @@ gulp.task('copySourceFiles', ['cleanDist'], function() {
 gulp.task('default', ['less', 'minify-css', 'minify-js', 'copyVendor', 'copySourceFiles']);
 
 // Configure the browserSync task
-gulp.task('browserSync', function() {
+gulp.task('browserSync', ['copySourceFiles', 'copyVendor'], function() {
     browserSync.init({
         server: {
-            baseDir: ''
+            baseDir: 'dist'
         },
     })
 })
 
 // Dev task with browserSync
-gulp.task('dev', ['browserSync', 'less', 'minify-css', 'minify-js', 'copyVendor'], function() {
+gulp.task('dev', ['browserSync', 'less', 'minify-css', 'minify-js', 'copyVendor', 'copySourceFiles'], function() {
     gulp.watch('less/*.less', ['less']);
     gulp.watch('css/*.css', ['minify-css']);
     gulp.watch('js/*.js', ['minify-js']);
