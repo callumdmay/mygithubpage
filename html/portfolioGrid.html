@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h2>Portfolio</h2>
+                <h2>Projects</h2>
                 <hr class="star-primary">
             </div>
         </div>
@@ -15,7 +15,7 @@
                             <i class="fa fa-search-plus fa-3x"></i>
                         </div>
                     </div>
-                    <img src="img/portfolio/cabin.png" class="img-responsive" alt="">
+                    <img src="img/portfolio/robot.png" class="img-responsive" alt="">
                 </a>
             </div>
             <div class="col-sm-4 portfolio-item">
@@ -25,7 +25,7 @@
                             <i class="fa fa-search-plus fa-3x"></i>
                         </div>
                     </div>
-                    <img src="img/portfolio/cake.png" class="img-responsive" alt="">
+                    <img src="img/portfolio/raspberry.png" class="img-responsive" alt="">
                 </a>
             </div>
             <div class="col-sm-4 portfolio-item">
@@ -35,7 +35,7 @@
                             <i class="fa fa-search-plus fa-3x"></i>
                         </div>
                     </div>
-                    <img src="img/portfolio/circus.png" class="img-responsive" alt="">
+                    <img src="img/portfolio/strategy.png" class="img-responsive" alt="">
                 </a>
             </div>
         </div>
@@ -55,25 +55,34 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
                     <div class="modal-body">
-                        <h2>Project Title</h2>
+                        <h2>Design Principles and Methods Robotics Contest</h2>
                         <hr class="star-primary">
-                        <img src="img/portfolio/cabin.png" class="img-responsive img-centered" alt="">
-                        <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
+                        <div align="center" class="embed-responsive embed-responsive-16by9">
+                            <video id="robotvideo" controls class="embed-responsive-item">
+                                  <source src=robot.mp4 type=video/mp4>
+                                  Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <p>Winning submission for the Design Principles and Methods Fall 2015 Robotics Contest. The contest was capture the flag. Further details and source code can be found on <a href="https://github.com/callumdmay/DPM_Final_Project">Github</a></p>
                         <ul class="list-inline item-details">
                             <li>Client:
-                                <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
+                                <strong><a href="http://mcgill.ca">McGill University</a>
                                 </strong>
                             </li>
                             <li>Date:
-                                <strong><a href="http://startbootstrap.com">April 2014</a>
-                                </strong>
+                                <strong>Fall 2015
+                              </strong>
                             </li>
                             <li>Service:
-                                <strong><a href="http://startbootstrap.com">Web Development</a>
+                                <strong>Class Project
+                              </strong>
+                            </li>
+                            <li>Language:
+                                <strong>Java
                                 </strong>
                             </li>
                         </ul>
-                        <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        <button type="button" class="btn btn-default" onclick="getElementById("robotVideo").pause();" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
                     </div>
                 </div>
             </div>
@@ -92,21 +101,26 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
                     <div class="modal-body">
-                        <h2>Project Title</h2>
+                        <h2>Raspberry Pi Notification Center</h2>
                         <hr class="star-primary">
-                        <img src="img/portfolio/cake.png" class="img-responsive img-centered" alt="">
-                        <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
+                        <img src="img/portfolio/notificationcenter.png" class="img-responsive img-centered" alt="">
+                        <p>This is a hobbyist notification app that I made for the raspberry pi and raspberry pi touchscreen. It is primarily written in AngularJS, although there is a seperate python web server that serves the icloud reminder and a service
+                            that turns off the display when the light level in the room is low (at night). Further details and source code can be found on <a href="https://github.com/callumdmay/pi-notification-app">Github</a></p>
                         <ul class="list-inline item-details">
                             <li>Client:
-                                <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
+                                <strong>Personal
                                 </strong>
                             </li>
                             <li>Date:
-                                <strong><a href="http://startbootstrap.com">April 2014</a>
+                                <strong>August 2016 - Present
                                 </strong>
                             </li>
                             <li>Service:
-                                <strong><a href="http://startbootstrap.com">Web Development</a>
+                                <strong>Web Development
+                                </strong>
+                            </li>
+                            <li>Language:
+                                <strong>Javascript
                                 </strong>
                             </li>
                         </ul>
@@ -129,25 +143,29 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
                     <div class="modal-body">
-                        <h2>Project Title</h2>
+                        <h2>Tower Defense Game</h2>
                         <hr class="star-primary">
-                        <img src="img/portfolio/circus.png" class="img-responsive img-centered" alt="">
-                        <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
+                        <img src="img/portfolio/towerdefense.png" class="img-responsive img-centered" alt="">
+                        <p>A Java Tower Defense Game for Introduction to Software Engineering. Written using the Slick2D Gaming Library. Further details and source code can be found on <a href="https://github.com/callumdmay/JavaTowerDefense">Github</a></p>
                         <ul class="list-inline item-details">
                             <li>Client:
-                                <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
+                                <strong><a href="http://mcgill.ca">McGill University</a>
                                 </strong>
                             </li>
                             <li>Date:
-                                <strong><a href="http://startbootstrap.com">April 2014</a>
+                                <strong>April 2015
                                 </strong>
                             </li>
                             <li>Service:
-                                <strong><a href="http://startbootstrap.com">Web Development</a>
+                                <strong>Class Project
+                                </strong>
+                            </li>
+                            <li>Language:
+                                <strong>Java
                                 </strong>
                             </li>
                         </ul>
-                        <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        <button type="button" class="btn btn-default"  data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
                     </div>
                 </div>
             </div>

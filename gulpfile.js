@@ -18,7 +18,7 @@ var banner = ['/*!\n',
 ].join('');
 
 // Compile LESS files from /less into /css
-gulp.task('less', ['cleanDist'], function() {
+gulp.task('less', function() {
     return gulp.src('less/freelancer.less')
         .pipe(less())
         .pipe(header(banner, {
@@ -31,7 +31,7 @@ gulp.task('less', ['cleanDist'], function() {
 });
 
 // Minify compiled CSS
-gulp.task('minify-css', ['less', 'cleanDist'], function() {
+gulp.task('minify-css', ['less'], function() {
     return gulp.src('css/freelancer.css')
         .pipe(cleanCSS({
             compatibility: 'ie8'
@@ -46,7 +46,7 @@ gulp.task('minify-css', ['less', 'cleanDist'], function() {
 });
 
 // Minify JS
-gulp.task('minify-js', ['cleanDist'], function() {
+gulp.task('minify-js', function() {
     return gulp.src('js/freelancer.js')
         .pipe(uglify())
         .pipe(header(banner, {
@@ -69,7 +69,7 @@ gulp.task('cleanDist', function() {
 });
 
 // Copy vendor libraries from /node_modules into /vendor
-gulp.task('copyVendor', ['cleanDist'], function() {
+gulp.task('copyVendor', function() {
     gulp.src(['node_modules/bootstrap/dist/**/*', '!**/npm.js', '!**/bootstrap-theme.*', '!**/*.map'])
         .pipe(flatten())
         .pipe(gulp.dest('dist/'))
@@ -94,13 +94,13 @@ gulp.task('copyVendor', ['cleanDist'], function() {
 
 })
 
-gulp.task('copySourceFiles', ['cleanDist'], function() {
+gulp.task('copySourceFiles', function() {
     gulp.src(['html/**'])
         .pipe(flatten())
         .pipe(gulp.dest('dist/'))
 
-    gulp.src(['img/**', ])
-        .pipe(gulp.dest('dist/img'))
+    gulp.src(['media/**', ])
+        .pipe(gulp.dest('dist/'))
 
     gulp.src(['res/Callum_May_Resume_2016.pdf', ])
         .pipe(gulp.dest('dist/'))
@@ -116,6 +116,8 @@ gulp.task('copySourceFiles', ['cleanDist'], function() {
 // Run everything
 gulp.task('default', ['less', 'minify-css', 'minify-js', 'copyVendor', 'copySourceFiles']);
 
+gulp.task('publish', ['less', 'minify-css', 'minify-js', 'copyVendor', 'copySourceFiles']);
+
 // Configure the browserSync task
 gulp.task('browserSync', ['copySourceFiles', 'copyVendor'], function() {
     browserSync.init({
@@ -127,10 +129,7 @@ gulp.task('browserSync', ['copySourceFiles', 'copyVendor'], function() {
 
 // Dev task with browserSync
 gulp.task('dev', ['browserSync', 'less', 'minify-css', 'minify-js', 'copyVendor', 'copySourceFiles'], function() {
-    gulp.watch('less/*.less', ['less']);
-    gulp.watch('css/*.css', ['minify-css']);
-    gulp.watch('js/*.js', ['minify-js']);
     // Reloads the browser whenever HTML or JS files change
-    gulp.watch('*.html', browserSync.reload);
-    gulp.watch('js/**/*.js', browserSync.reload);
+    gulp.watch('dist/**/*.html', browserSync.reload);
+    gulp.watch('dist/**/*.js', browserSync.reload);
 });
