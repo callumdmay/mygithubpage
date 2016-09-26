@@ -1,25 +1,33 @@
 {
-  "name": "freelancer",
-  "title": "Freelancer",
-  "version": "3.3.7+1",
-  "homepage": "www.callummay.me",
-  "author": "Start Bootstrap",
-  "devDependencies": {
-    "bootstrap": "^3.3.7",
-    "browser-sync": "^2.13.0",
-    "font-awesome": "^4.6.3",
-    "gulp": "^3.9.1",
-    "gulp-clean": "^0.3.2",
-    "gulp-clean-css": "^2.0.10",
-    "gulp-flatten": "^0.3.1",
-    "gulp-header": "^1.8.7",
-    "gulp-less": "^3.1.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-uglify": "^1.5.4",
-    "jquery": "^1.11.3"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/callumdmay/mygithubpage.git"
-  }
+    "name": "Website",
+    "title": "Personal Website",
+    "version": "1.0.0",
+    "homepage": "www.callummay.me",
+    "author": "Callum May",
+    "devDependencies": {
+        "bootstrap": "^3.3.7",
+        "browser-sync": "^2.13.0",
+        "font-awesome": "^4.6.3",
+        "gh-pages-deploy": "^0.4.2",
+        "gulp": "^3.9.1",
+        "gulp-clean": "^0.3.2",
+        "gulp-clean-css": "^2.0.10",
+        "gulp-flatten": "^0.3.1",
+        "gulp-header": "^1.8.7",
+        "gulp-less": "^3.1.0",
+        "gulp-rename": "^1.2.2",
+        "gulp-uglify": "^1.5.4",
+        "jquery": "^1.11.3"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/callumdmay/mygithubpage.git"
+    },
+    "scripts": {
+        "deploy": "gh-pages-deploy"
+    },
+    "gh-pages-deploy": {
+        "staticpath": "dist",
+        "noprompt": false
+    }
 }
