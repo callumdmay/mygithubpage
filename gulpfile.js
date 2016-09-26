@@ -116,6 +116,10 @@ gulp.task('copySourceFiles', function() {
     gulp.src('CNAME')
         .pipe(gulp.dest('dist/'))
 
+    gulp.src('mail/**')
+        .pipe(gulp.dest('dist/mail'))
+
+
 })
 
 gulp.task('deploy', function() {
