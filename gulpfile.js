@@ -8,6 +8,8 @@ var cleanCSS = require('gulp-clean-css');
 var rename = require("gulp-rename");
 var uglify = require('gulp-uglify');
 var pkg = require('./package.json');
+var ghPages = require('gulp-gh-pages');
+
 
 // Set the banner content
 var banner = ['/*!\n',
@@ -111,7 +113,15 @@ gulp.task('copySourceFiles', function() {
         .pipe(flatten())
         .pipe(gulp.dest('dist/'))
 
+    gulp.src('CNAME')
+        .pipe(gulp.dest('dist/'))
+
 })
+
+gulp.task('deploy', function() {
+  return gulp.src('./dist/**/*')
+    .pipe(ghPages());
+});
 
 // Run everything
 gulp.task('default', ['less', 'minify-css', 'minify-js', 'copyVendor', 'copySourceFiles']);
