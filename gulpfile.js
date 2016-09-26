@@ -126,8 +126,6 @@ gulp.task('deploy', function() {
 // Run everything
 gulp.task('default', ['less', 'minify-css', 'minify-js', 'copyVendor', 'copySourceFiles']);
 
-gulp.task('publish', ['less', 'minify-css', 'minify-js', 'copyVendor', 'copySourceFiles']);
-
 // Configure the browserSync task
 gulp.task('browserSync', ['copySourceFiles', 'copyVendor'], function() {
     browserSync.init({
