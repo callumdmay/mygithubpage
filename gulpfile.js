@@ -122,7 +122,7 @@ gulp.task('copySourceFiles', function() {
 
 })
 
-gulp.task('deploy', function() {
+gulp.task('deploy', ['less', 'minify-css', 'minify-js', 'copyVendor', 'copySourceFiles'], function() {
   return gulp.src('./dist/**/*')
     .pipe(ghPages());
 });
