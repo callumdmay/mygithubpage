@@ -104,7 +104,7 @@ gulp.task('copySourceFiles', function() {
     gulp.src(['media/**', ])
         .pipe(gulp.dest('dist/'))
 
-    gulp.src(['res/Callum_May_Resume_2016.pdf', ])
+    gulp.src(['res/Callum May Resume.pdf', ])
         .pipe(gulp.dest('dist/'))
 
     gulp.src(['app.config.js', 'app.module.js', 'jqBootstrapValidation.js', 'contact_me.js'], {
