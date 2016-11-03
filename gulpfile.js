@@ -80,6 +80,10 @@ gulp.task('copyVendor', function() {
         .pipe(flatten())
         .pipe(gulp.dest('dist/'))
 
+    gulp.src(['node_modules/angular-scroll-animate/dist/angular-scroll-animate.js'])
+        .pipe(flatten())
+        .pipe(gulp.dest('dist/'))
+
     gulp.src(['node_modules/jquery/dist/jquery.js', 'node_modules/jquery/dist/jquery.min.js'])
         .pipe(flatten())
         .pipe(gulp.dest('dist/'))
@@ -92,6 +96,10 @@ gulp.task('copyVendor', function() {
             '!node_modules/font-awesome/*.md',
             '!node_modules/font-awesome/*.json'
         ])
+        .pipe(gulp.dest('dist/'))
+
+    gulp.src(['node_modules/animate.css/animate.min.css'])
+        .pipe(flatten())
         .pipe(gulp.dest('dist/'))
 
 })
@@ -107,7 +115,7 @@ gulp.task('copySourceFiles', function() {
     gulp.src(['res/Callum May Resume.pdf', ])
         .pipe(gulp.dest('dist/'))
 
-    gulp.src(['app.config.js', 'app.module.js', 'jqBootstrapValidation.js', 'contact_me.js'], {
+    gulp.src(['app.config.js', 'app.module.js', 'mainController.js'], {
             cwd: 'js/'
         })
         .pipe(flatten())

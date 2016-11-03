@@ -32,5 +32,9 @@
     "gh-pages-deploy": {
         "staticpath": "dist",
         "noprompt": false
+    },
+    "dependencies": {
+        "angular-scroll-animate": "^0.9.9",
+        "animate.css": "^3.5.2"
     }
 }
