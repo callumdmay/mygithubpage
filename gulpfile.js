@@ -34,7 +34,7 @@ gulp.task('less', function() {
 
 // Minify compiled CSS
 gulp.task('minify-css', ['less'], function() {
-    return gulp.src('css/freelancer.css')
+    return gulp.src('css/main.css')
         .pipe(cleanCSS({
             compatibility: 'ie8'
         }))
