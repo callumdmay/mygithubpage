@@ -20,4 +20,14 @@ controller('mainController', function($scope) {
         $el.removeClass('not-visible');
         $el.addClass('animated bounceInRight'); // this example leverages animate.css classes
     };
+
+    $scope.animateElementFadeInLeft = function($el) {
+        $el.removeClass('not-visible');
+        $el.addClass('animated fadeInLeft'); // this example leverages animate.css classes
+    };
+
+    $scope.animateElementFadeInRight = function($el) {
+        $el.removeClass('not-visible');
+        $el.addClass('animated fadeInRight'); // this example leverages animate.css classes
+    };
 });
