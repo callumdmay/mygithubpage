@@ -11,6 +11,12 @@ controller('mainController', function($scope) {
         $el.addClass('animated fadeInUp'); // this example leverages animate.css classes
     };
 
+    $scope.animateElementFadeIn = function($el) {
+        $el.removeClass('not-visible');
+        $el.addClass('animated fadeIn'); // this example leverages animate.css classes
+    };
+
+
     $scope.animateElementBounceInLeft = function($el) {
         $el.removeClass('not-visible');
         $el.addClass('animated bounceInLeft'); // this example leverages animate.css classes
