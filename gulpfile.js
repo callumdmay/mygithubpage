@@ -40,10 +40,6 @@ gulp.task('clean', function() {
             read: false
         })
         .pipe(clean());
-    gulp.src(".publish", {
-        read: false
-    })
-    .pipe(clean());
 });
 
 // Copy vendor libraries from /node_modules into /vendor
@@ -108,10 +104,7 @@ gulp.task('copy-js', function() {
       .pipe(gulp.dest('dist/'))
 });
 
-gulp.task('deploy', function() {
-  return gulp.src('./dist/**')
-    .pipe(ghPages());
-});
+
 
 // Run everything
 gulp.task('default', [ 'minify-css', 'copy-vendor', 'copy-assets', 'copy-js', 'copy-html']);

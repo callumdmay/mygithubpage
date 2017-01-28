@@ -8,7 +8,8 @@
     "angular-scroll-animate": "^0.9.9",
     "animate.css": "^3.5.2",
     "bootstrap": "^3.3.7",
-    "font-awesome": "^4.6.3"
+    "font-awesome": "^4.6.3",
+    "gh-pages": "0.12.0"
   },
   "devDependencies": {
     "browser-sync": "^2.13.0",
@@ -40,7 +41,7 @@
   },
   "scripts": {
     "build:": "gulp clean && gulp",
-    "deploy": "gh-pages-deploy"
+    "deploy": "gulp clean && gulp && gh-pages -d dist -t true",
   },
   "title": "Personal Website"
 }
