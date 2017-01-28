@@ -3,24 +3,24 @@
   <div class="container">
 
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <button type="button" class="navbar-toggle" ng-click="isCollapsed = !isCollapsed">
         <span class="sr-only">Toggle navigation
         </span> Menu <i class="fa fa-bars"></i>
       </button>
     </div>
-    <div>
+    <div uib-collapse="isCollapsed" >
       <ul class="nav navbar-nav navbar-right">
         <li ng-class="{ active: isActive('/')}">
-          <a href="/">Home</a>
+          <a href="/" ng-click="isCollapsed = !isCollapsed">Home</a>
         </li>
         <li ng-class="{ active: isActive('/portfolio')}">
-          <a href="/portfolio">Portfolio</a>
+          <a href="/portfolio" ng-click="isCollapsed = !isCollapsed">Portfolio</a>
         </li>
         <li ng-class="{ active: isActive('/about')}">
-          <a href="/about">About</a>
+          <a href="/about" ng-click="isCollapsed = !isCollapsed">About</a>
         </li>
         <li ng-class="{ active: isActive('/contact')}">
-          <a href="/contact">Contact</a>
+          <a href="/contact" ng-click="isCollapsed = !isCollapsed">Contact</a>
         </li>
       </ul>
     </div>
