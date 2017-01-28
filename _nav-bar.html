@@ -8,7 +8,7 @@
         </span> Menu <i class="fa fa-bars"></i>
       </button>
     </div>
-    <div uib-collapse="isCollapsed" >
+    <div uib-collapse="isCollapsed">
       <ul class="nav navbar-nav navbar-right">
         <li ng-class="{ active: isActive('/')}">
           <a href="/" ng-click="isCollapsed = !isCollapsed">Home</a>
@@ -21,6 +21,23 @@
         </li>
         <li ng-class="{ active: isActive('/contact')}">
           <a href="/contact" ng-click="isCollapsed = !isCollapsed">Contact</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="hidden-xs">
+      <ul class="nav navbar-nav navbar-right">
+        <li ng-class="{ active: isActive('/')}">
+          <a href="/">Home</a>
+        </li>
+        <li ng-class="{ active: isActive('/portfolio')}">
+          <a href="/portfolio">Portfolio</a>
+        </li>
+        <li ng-class="{ active: isActive('/about')}">
+          <a href="/about">About</a>
+        </li>
+        <li ng-class="{ active: isActive('/contact')}">
+          <a href="/contact">Contact</a>
         </li>
       </ul>
     </div>
