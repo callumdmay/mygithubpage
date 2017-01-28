@@ -7,6 +7,11 @@ controller('appCtrl', function($scope, $location) {
 
   $scope.isCollapsed = true;
 
+  $scope.getYear = function() {
+    var d = new Date();
+    return d.getFullYear();
+  }
+
   $scope.animateElementInDown = function($el) {
     $el.removeClass('not-visible');
     $el.addClass('animated fadeInDown'); // this example leverages animate.css classes
