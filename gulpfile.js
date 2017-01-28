@@ -1,5 +1,4 @@
 var gulp = require('gulp');
-var less = require('gulp-less');
 var clean = require('gulp-clean');
 var flatten = require('gulp-flatten');
 var browserSync = require('browser-sync').create();
@@ -10,7 +9,6 @@ var uglify = require('gulp-uglify');
 var pkg = require('./package.json');
 var ghPages = require('gulp-gh-pages');
 
-
 // Set the banner content
 var banner = ['/*!\n',
     ' * Start Bootstrap - <%= pkg.title %> v<%= pkg.version %> (<%= pkg.homepage %>)\n',
@@ -19,21 +17,9 @@ var banner = ['/*!\n',
     ''
 ].join('');
 
-// Compile LESS files from /less into /css
-gulp.task('less', function() {
-    return gulp.src('less/freelancer.less')
-        .pipe(less())
-        .pipe(header(banner, {
-            pkg: pkg
-        }))
-        .pipe(gulp.dest('css'))
-        .pipe(browserSync.reload({
-            stream: true
-        }))
-});
 
 // Minify compiled CSS
-gulp.task('minify-css', ['less'], function() {
+gulp.task('minify-css', function() {
     return gulp.src('css/main.css')
         .pipe(cleanCSS({
             compatibility: 'ie8'
@@ -71,7 +57,7 @@ gulp.task('cleanDist', function() {
 });
 
 // Copy vendor libraries from /node_modules into /vendor
-gulp.task('copyVendor', function() {
+gulp.task('copy-vendor', function() {
     gulp.src(['node_modules/bootstrap/dist/**/*', '!**/npm.js', '!**/bootstrap-theme.*', '!**/*.map'])
         .pipe(flatten())
         .pipe(gulp.dest('dist/'))
@@ -104,21 +90,12 @@ gulp.task('copyVendor', function() {
 
 })
 
-gulp.task('copySourceFiles', function() {
-    gulp.src(['html/**'])
-        .pipe(flatten())
-        .pipe(gulp.dest('dist/'))
+gulp.task('copy-assets', function() {
 
     gulp.src(['media/**', ])
         .pipe(gulp.dest('dist/'))
 
     gulp.src(['res/Callum May Resume.pdf', ])
-        .pipe(gulp.dest('dist/'))
-
-    gulp.src(['app.config.js', 'app.module.js', 'mainController.js'], {
-            cwd: 'js/'
-        })
-        .pipe(flatten())
         .pipe(gulp.dest('dist/'))
 
     gulp.src('CNAME')
@@ -127,19 +104,32 @@ gulp.task('copySourceFiles', function() {
     gulp.src('mail/**')
         .pipe(gulp.dest('dist/mail'))
 
+});
 
-})
+gulp.task('copy-html', function() {
+  gulp.src(['html/**'])
+      .pipe(flatten())
+      .pipe(gulp.dest('dist/'))
+});
 
-gulp.task('deploy', ['less', 'minify-css', 'minify-js', 'copyVendor', 'copySourceFiles'], function() {
+gulp.task('copy-js', function() {
+  gulp.src(['app.config.js', 'app.module.js', 'mainController.js'], {
+          cwd: 'js/'
+      })
+      .pipe(flatten())
+      .pipe(gulp.dest('dist/'))
+});
+
+gulp.task('deploy', ['minify-css', 'minify-js', 'copy-vendor', 'copy-assets', 'copy-html', 'copy-js'], function() {
   return gulp.src('./dist/**/*')
     .pipe(ghPages());
 });
 
 // Run everything
-gulp.task('default', ['less', 'minify-css', 'minify-js', 'copyVendor', 'copySourceFiles']);
+gulp.task('default', [ 'minify-css', 'minify-js', 'copy-vendor', 'copy-assets', 'copy-js']);
 
 // Configure the browserSync task
-gulp.task('browserSync', ['copySourceFiles', 'copyVendor'], function() {
+gulp.task('browserSync', ['copy-assets', 'copy-vendor'], function() {
     browserSync.init({
         server: {
             baseDir: 'dist'
@@ -148,8 +138,10 @@ gulp.task('browserSync', ['copySourceFiles', 'copyVendor'], function() {
 })
 
 // Dev task with browserSync
-gulp.task('dev', ['browserSync', 'less', 'minify-css', 'minify-js', 'copyVendor', 'copySourceFiles'], function() {
+gulp.task('dev', ['browserSync', 'default'], function() {
     // Reloads the browser whenever HTML or JS files change
-    gulp.watch('dist/**/*.html', browserSync.reload);
-    gulp.watch('dist/**/*.js', browserSync.reload);
+    gulp.watch('dist/**', browserSync.reload);
+    gulp.watch('html/**', ['copy-html']);
+    gulp.watch('js/**', ['minify-js', 'copy-js']);
+    gulp.watch('css/**', ['minify-css']);
 });
