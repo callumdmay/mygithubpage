@@ -93,7 +93,7 @@ header .intro-text .skills {
 }
 @media (min-width: 768px) {
   header .container {
-    padding: 90px 0px;
+    padding: 90px 0px 40px;
   }
   header .intro-text .name {
     font-size: 3em;
