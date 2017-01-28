@@ -131,7 +131,7 @@ gulp.task('webserver', function() {
 });
 
 // Dev task with browserSync
-gulp.task('dev', ['browserSync', 'default', 'webserver'], function() {
+gulp.task('dev', ['default', 'webserver', 'browserSync'], function() {
     // Reloads the browser whenever HTML or JS files change
     gulp.watch('dist/**', browserSync.reload);
     gulp.watch('html/**', ['copy-html']);
