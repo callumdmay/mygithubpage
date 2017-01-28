@@ -49,7 +49,7 @@ gulp.task('minify-js', function() {
         }))
 });
 
-gulp.task('cleanDist', function() {
+gulp.task('clean', function() {
     return gulp.src('dist', {
             read: false
         })
@@ -113,20 +113,18 @@ gulp.task('copy-html', function() {
 });
 
 gulp.task('copy-js', function() {
-  gulp.src(['app.config.js', 'app.module.js', 'mainController.js'], {
-          cwd: 'js/'
-      })
+  gulp.src(['js/**'])
       .pipe(flatten())
       .pipe(gulp.dest('dist/'))
 });
 
-gulp.task('deploy', ['minify-css', 'minify-js', 'copy-vendor', 'copy-assets', 'copy-html', 'copy-js'], function() {
+gulp.task('deploy', ['default'], function() {
   return gulp.src('./dist/**/*')
     .pipe(ghPages());
 });
 
 // Run everything
-gulp.task('default', [ 'minify-css', 'minify-js', 'copy-vendor', 'copy-assets', 'copy-js']);
+gulp.task('default', [ 'minify-css', 'minify-js', 'copy-vendor', 'copy-assets', 'copy-js', 'copy-html']);
 
 // Configure the browserSync task
 gulp.task('browserSync', ['copy-assets', 'copy-vendor'], function() {
