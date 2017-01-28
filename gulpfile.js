@@ -70,7 +70,7 @@ gulp.task('copy-vendor', function() {
         .pipe(flatten())
         .pipe(gulp.dest('dist/'))
 
-    gulp.src(['vendor/ui-bootstrap.min.js', 'vendor/.nojekyll'])
+    gulp.src(['vendor/.nojekyll'])
         .pipe(gulp.dest('dist/'))
 
 })
