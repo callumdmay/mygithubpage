@@ -109,7 +109,7 @@ gulp.task('deploy', function() {
 });
 
 // Run everything
-gulp.task('default', [ 'minify-css', 'minify-js', 'copy-vendor', 'copy-assets', 'copy-js', 'copy-html']);
+gulp.task('default', [ 'minify-css', 'copy-vendor', 'copy-assets', 'copy-js', 'copy-html']);
 
 // Configure the browserSync task
 gulp.task('browserSync', ['copy-assets', 'copy-vendor', 'webserver'], function() {
