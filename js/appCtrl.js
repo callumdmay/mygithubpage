@@ -1,5 +1,5 @@
 angular.module('myApp.controllers').
-controller('mainController', function($scope, $location) {
+controller('appCtrl', function($scope, $location) {
 
     $scope.animateElementInDown = function($el) {
         $el.removeClass('not-visible');

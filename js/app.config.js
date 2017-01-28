@@ -3,19 +3,15 @@ angular.module('myApp')
     $routeProvider.
     when("/", {
       templateUrl: "_home.html",
-      controller:"mainController"
+      controller:"appCtrl"
     }).
     when("/contact", {
       templateUrl: "_contact.html",
-      controller:"mainController"
+      controller:"appCtrl"
     }).
     when("/about", {
       templateUrl: "_about.html",
-      controller:"mainController"
-    }).
-    when("/portfolio", {
-      templateUrl: "_header.html",
-      controller:"mainController"
+      controller:"appCtrl"
     }).
     otherwise("/");
 
