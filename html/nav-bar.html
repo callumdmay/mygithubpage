@@ -1,0 +1,28 @@
+<!-- Navigation -->
+<nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container">
+
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation
+        </span> Menu <i class="fa fa-bars"></i>
+      </button>
+    </div>
+    <div>
+      <ul class="nav navbar-nav navbar-right">
+        <li ng-class="{ active: isActive('/')}">
+          <a href="/">Home</a>
+        </li>
+        <li ng-class="{ active: isActive('/portfolio')}">
+          <a href="/portfolio">Portfolio</a>
+        </li>
+        <li ng-class="{ active: isActive('/about')}">
+          <a href="/about">About</a>
+        </li>
+        <li ng-class="{ active: isActive('/contact')}">
+          <a href="/contact">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

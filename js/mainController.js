@@ -1,5 +1,5 @@
 angular.module('myApp.controllers').
-controller('mainController', function($scope) {
+controller('mainController', function($scope, $location) {
 
     $scope.animateElementInDown = function($el) {
         $el.removeClass('not-visible');
@@ -35,5 +35,9 @@ controller('mainController', function($scope) {
     $scope.animateElementFadeInRight = function($el) {
         $el.removeClass('not-visible');
         $el.addClass('animated fadeInRight'); // this example leverages animate.css classes
+    };
+
+    $scope.isActive = function (viewLocation) {
+        return viewLocation === $location.path();
     };
 });
