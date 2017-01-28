@@ -8,6 +8,7 @@ var rename = require("gulp-rename");
 var uglify = require('gulp-uglify');
 var pkg = require('./package.json');
 var ghPages = require('gulp-gh-pages');
+var webserver = require('gulp-webserver');
 
 // Set the banner content
 var banner = ['/*!\n',
@@ -33,21 +34,6 @@ gulp.task('minify-css', function() {
         }))
 });
 
-// Minify JS
-gulp.task('minify-js', function() {
-    return gulp.src('js/freelancer.js')
-        .pipe(uglify())
-        .pipe(header(banner, {
-            pkg: pkg
-        }))
-        .pipe(rename({
-            suffix: '.min'
-        }))
-        .pipe(gulp.dest('dist'))
-        .pipe(browserSync.reload({
-            stream: true
-        }))
-});
 
 gulp.task('clean', function() {
     return gulp.src('dist', {
@@ -67,10 +53,6 @@ gulp.task('copy-vendor', function() {
         .pipe(gulp.dest('dist/'))
 
     gulp.src(['node_modules/angular-scroll-animate/dist/angular-scroll-animate.js'])
-        .pipe(flatten())
-        .pipe(gulp.dest('dist/'))
-
-    gulp.src(['node_modules/jquery/dist/jquery.js', 'node_modules/jquery/dist/jquery.min.js'])
         .pipe(flatten())
         .pipe(gulp.dest('dist/'))
 
@@ -104,6 +86,9 @@ gulp.task('copy-assets', function() {
     gulp.src('mail/**')
         .pipe(gulp.dest('dist/mail'))
 
+    gulp.src('vendor/ui-bootstrap.min.js')
+        .pipe(gulp.dest('dist/'))
+
 });
 
 gulp.task('copy-html', function() {
@@ -127,19 +112,25 @@ gulp.task('deploy', function() {
 gulp.task('default', [ 'minify-css', 'minify-js', 'copy-vendor', 'copy-assets', 'copy-js', 'copy-html']);
 
 // Configure the browserSync task
-gulp.task('browserSync', ['copy-assets', 'copy-vendor'], function() {
+gulp.task('browserSync', ['copy-assets', 'copy-vendor', 'webserver'], function() {
     browserSync.init({
-        server: {
-            baseDir: 'dist'
-        },
+      proxy: "localhost:8000"
     })
 })
 
+gulp.task('webserver', function() {
+  gulp.src('dist')
+    .pipe(webserver({
+      fallback: "index.html",
+      open: true
+    }));
+});
+
 // Dev task with browserSync
-gulp.task('dev', ['browserSync', 'default'], function() {
+gulp.task('dev', ['browserSync', 'default', 'webserver'], function() {
     // Reloads the browser whenever HTML or JS files change
     gulp.watch('dist/**', browserSync.reload);
     gulp.watch('html/**', ['copy-html']);
-    gulp.watch('js/**', ['minify-js', 'copy-js']);
+    gulp.watch('js/**', ['copy-js']);
     gulp.watch('css/**', ['minify-css']);
 });
