@@ -118,7 +118,7 @@ gulp.task('copy-js', function() {
       .pipe(gulp.dest('dist/'))
 });
 
-gulp.task('deploy', ['default'], function() {
+gulp.task('deploy', function() {
   return gulp.src('./dist/**/*')
     .pipe(ghPages());
 });
