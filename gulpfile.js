@@ -113,6 +113,7 @@ gulp.task('default', [ 'minify-css', 'copy-vendor', 'copy-assets', 'copy-js', 'c
 gulp.task('browserSync', ['copy-assets', 'copy-vendor', 'webserver'], function() {
     browserSync.init({
       proxy: "localhost:8000",
+      notify: false
     })
 })
 
