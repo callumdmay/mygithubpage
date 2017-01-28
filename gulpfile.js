@@ -36,10 +36,14 @@ gulp.task('minify-css', function() {
 
 
 gulp.task('clean', function() {
-    return gulp.src('dist', {
+    gulp.src('dist', {
             read: false
         })
         .pipe(clean());
+    gulp.src(".publish", {
+        read: false
+    })
+    .pipe(clean());
 });
 
 // Copy vendor libraries from /node_modules into /vendor
@@ -70,6 +74,9 @@ gulp.task('copy-vendor', function() {
         .pipe(flatten())
         .pipe(gulp.dest('dist/'))
 
+    gulp.src(['vendor/ui-bootstrap.min.js', 'vendor/.nojekyll'])
+        .pipe(gulp.dest('dist/'))
+
 })
 
 gulp.task('copy-assets', function() {
@@ -86,8 +93,6 @@ gulp.task('copy-assets', function() {
     gulp.src('mail/**')
         .pipe(gulp.dest('dist/mail'))
 
-    gulp.src('vendor/ui-bootstrap.min.js')
-        .pipe(gulp.dest('dist/'))
 
 });
 
@@ -114,7 +119,7 @@ gulp.task('default', [ 'minify-css', 'copy-vendor', 'copy-assets', 'copy-js', 'c
 // Configure the browserSync task
 gulp.task('browserSync', ['copy-assets', 'copy-vendor', 'webserver'], function() {
     browserSync.init({
-      proxy: "localhost:8000"
+      proxy: "localhost:8000",
     })
 })
 
@@ -122,7 +127,6 @@ gulp.task('webserver', function() {
   gulp.src('dist')
     .pipe(webserver({
       fallback: "index.html",
-      open: true
     }));
 });
 
