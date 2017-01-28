@@ -14,7 +14,7 @@ angular.module('myApp')
       controller:"mainController"
     }).
     when("/portfolio", {
-      templateUrl: "portfolio.html",
+      templateUrl: "header.html",
       controller:"mainController"
     })
 
