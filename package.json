@@ -42,6 +42,7 @@
   "scripts": {
     "build:": "gulp clean && gulp",
     "deploy": "gulp clean && gulp && gh-pages -d dist -t true",
+    "dev": "gulp dev"
   },
   "title": "Personal Website"
 }
