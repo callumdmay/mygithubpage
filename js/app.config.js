@@ -2,21 +2,22 @@ angular.module('myApp')
   .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     $routeProvider.
     when("/", {
-      templateUrl: "header.html",
+      templateUrl: "_home.html",
       controller:"mainController"
     }).
     when("/contact", {
-      templateUrl: "contact.html",
+      templateUrl: "_contact.html",
       controller:"mainController"
     }).
     when("/about", {
-      templateUrl: "about.html",
+      templateUrl: "_about.html",
       controller:"mainController"
     }).
     when("/portfolio", {
-      templateUrl: "header.html",
+      templateUrl: "_header.html",
       controller:"mainController"
-    })
+    }).
+    otherwise("/");
 
     $locationProvider.html5Mode(true);
   }]);
