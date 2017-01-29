@@ -8,7 +8,7 @@
         </span> Menu <i class="fa fa-bars"></i>
       </button>
     </div>
-    <div uib-collapse="isCollapsed">
+    <div ng-show="isCollapsed">
       <ul class="nav navbar-nav navbar-right">
         <li ng-class="{ active: isActive('/')}">
           <a href="/" ng-click="isCollapsed = !isCollapsed">Home</a>
