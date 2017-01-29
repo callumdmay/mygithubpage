@@ -5,7 +5,7 @@ controller('appCtrl', function($scope, $location) {
     return viewLocation === $location.path();
   };
 
-  $scope.isCollapsed = true;
+  $scope.isCollapsed = false;
 
   $scope.getYear = function() {
     var d = new Date();
