@@ -13,6 +13,10 @@ angular.module('myApp')
       templateUrl: "_about.html",
       controller:"appCtrl"
     }).
+    when("/portfolio", {
+      templateUrl: "_portfolio-grid.html",
+      controller: "appCtrl"
+    }).
     otherwise("/");
 
     $locationProvider.html5Mode(true);
