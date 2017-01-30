@@ -266,12 +266,6 @@ section.success {
     margin-bottom: 10px;
 }
 
-
-#about .btn-outline {
-    color: #333;
-    font-size: 20px;
-    border: solid 2px #333;
-}
 .item-details {
     text-align: center;
 }
@@ -349,6 +343,15 @@ footer .footer-above {
     background-color: #233237;
 }
 
+.footer-above .btn-outline {
+  color: white;
+}
+.footer-above .btn-outline:hover, .btn-outline:focus, .btn-outline:active, .btn-outline.active {
+    color: #828081;
+    background: white;
+    border: solid 2px white;
+}
+
 footer .footer-col {
     margin-bottom: 10px;
 }
@@ -359,24 +362,22 @@ footer .footer-below {
 }
 
 .btn-outline {
-    color: white;
+    color: #333;
     font-size: 20px;
-    border: solid 2px white;
+    border: solid 2px #333;
     background: transparent;
     transition: all 0.3s ease-in-out;
     margin-top: 15px;
 }
 
 #home .btn-outline {
-    color: #333;
     font-size: 20px;
-    border: solid 2px #333;
 }
 
 .btn-outline:hover, .btn-outline:focus, .btn-outline:active, .btn-outline.active {
-    color: #828081;
-    background: white;
-    border: solid 2px white;
+    color: white;
+    background: #333;
+    border: solid 2px #333;
 }
 
 .btn-primary {
