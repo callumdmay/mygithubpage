@@ -270,6 +270,13 @@ section.success {
     text-align: center;
 }
 
+.navbar-name {
+  font-family: 'Italianno', cursive;
+  color:white;
+  text-transform: none;
+  font-size: 2em;
+  vertical-align: middle;
+}
 .projects .row {
     margin: 50px 0px;
     height: 100%;
