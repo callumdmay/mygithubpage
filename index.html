@@ -15,9 +15,9 @@
   <title>Callum May</title>
 
   <!-- Bootstrap Core CSS -->
-  <link href="bootstrap.min.css" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
   <!-- Animate.css -->
-  <link href="animate.min.css" rel="stylesheet">
+  <link href="css/animate.min.css" rel="stylesheet">
   <!-- Custom Fonts -->
   <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
@@ -36,7 +36,6 @@
   </script>
   <!-- angular -->
   <script src="angular.min.js"></script>
-  <script src="angular-route.min.js"></script>
 
 </head>
 
@@ -47,7 +46,7 @@
     <div ng-controller="appCtrl">
       <div id="content">
         <ng-include src="'_nav-bar.html'"></ng-include>
-        <div ng-view autoscroll="true"></div>
+        <div ng-view autoscroll="true" class="main-content"></div>
       </div>
       <div id="footer">
         <ng-include src="'_footer.html'"></ng-include>
@@ -56,10 +55,7 @@
   </div>
 
   <!-- Angular -->
-  <script src="app.module.js"></script>
-  <script src="app.config.js"></script>
-  <script src="angular-scroll-animate.js"></script>
-  <script src="appCtrl.js"></script>
+  <script src="app.js"></script>
 
 </body>
 
