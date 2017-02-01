@@ -9,15 +9,7 @@ var uglify = require('gulp-uglify');
 var pkg = require('./package.json');
 var ghPages = require('gulp-gh-pages');
 var webserver = require('gulp-webserver');
-
-// Set the banner content
-var banner = ['/*!\n',
-    ' * Start Bootstrap - <%= pkg.title %> v<%= pkg.version %> (<%= pkg.homepage %>)\n',
-    ' * Copyright 2013-' + (new Date()).getFullYear(), ' <%= pkg.author %>\n',
-    ' */\n',
-    ''
-].join('');
-
+var concat = require('gulp-concat');
 
 // Minify compiled CSS
 gulp.task('minify-css', function() {
@@ -98,16 +90,15 @@ gulp.task('copy-html', function() {
       .pipe(gulp.dest('dist/'))
 });
 
-gulp.task('copy-js', function() {
-  gulp.src(['js/**'])
-      .pipe(flatten())
-      .pipe(gulp.dest('dist/'))
+gulp.task('concat-js', function(){
+  gulp.src(["js/app.module.js", "js/app.config.js", "js/**"])
+    .pipe(concat("app.js"))
+    .pipe(gulp.dest("dist/"))
 });
 
 
-
 // Run everything
-gulp.task('default', [ 'minify-css', 'copy-vendor', 'copy-assets', 'copy-js', 'copy-html']);
+gulp.task('default', [ 'minify-css', 'copy-vendor', 'copy-assets', 'concat-js', 'copy-html']);
 
 // Configure the browserSync task
 gulp.task('browserSync', ['copy-assets', 'copy-vendor', 'webserver'], function() {
@@ -129,6 +120,6 @@ gulp.task('dev', ['default', 'webserver', 'browserSync'], function() {
     // Reloads the browser whenever HTML or JS files change
     gulp.watch('dist/**', browserSync.reload);
     gulp.watch('html/**', ['copy-html']);
-    gulp.watch('js/**', ['copy-js']);
+    gulp.watch('js/**', ['concat-js']);
     gulp.watch('css/**', ['minify-css']);
 });
