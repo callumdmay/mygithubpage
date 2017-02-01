@@ -4,6 +4,7 @@
   "author": "Callum May",
   "dependencies": {
     "angular": "^1.5.8",
+    "angular-animate": "1.6.1",
     "angular-route": "^1.5.8",
     "angular-scroll-animate": "^0.9.9",
     "animate.css": "^3.5.2",

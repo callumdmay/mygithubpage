@@ -38,14 +38,12 @@ gulp.task('clean', function() {
 gulp.task('copy-vendor', function() {
     gulp.src(['node_modules/bootstrap/dist/**/*', '!**/npm.js', '!**/bootstrap-theme.*', '!**/*.map'])
         .pipe(flatten())
-        .pipe(gulp.dest('dist/'))
+        .pipe(gulp.dest('dist/css'))
 
-    gulp.src(['node_modules/angular/angular.min.js', 'node_modules/angular-route/angular-route.min.js'])
+    gulp.src(['node_modules/angular/angular.min.js', 'node_modules/angular-route/angular-route.min.js',
+        "node_modules/angular-animate/angular-animate.min.js"])
         .pipe(flatten())
-        .pipe(gulp.dest('dist/'))
-
-    gulp.src(['node_modules/angular-scroll-animate/dist/angular-scroll-animate.js'])
-        .pipe(flatten())
+        .pipe(concat("angular.min.js"))
         .pipe(gulp.dest('dist/'))
 
     gulp.src([
@@ -60,7 +58,7 @@ gulp.task('copy-vendor', function() {
 
     gulp.src(['node_modules/animate.css/animate.min.css'])
         .pipe(flatten())
-        .pipe(gulp.dest('dist/'))
+        .pipe(gulp.dest('dist/css'))
 
     gulp.src(['vendor/.nojekyll'])
         .pipe(gulp.dest('dist/'))
