@@ -12,19 +12,4 @@ controller('appCtrl', function($scope, $location) {
     return d.getFullYear();
   }
 
-  $scope.animateElementFadeIn = function($el) {
-    $el.removeClass('not-visible');
-    $el.addClass('animated fadeIn'); // this example leverages animate.css classes
-  };
-
-  $scope.animateElementBounceInLeft = function($el) {
-    $el.removeClass('not-visible');
-    $el.addClass('animated bounceInLeft'); // this example leverages animate.css classes
-  };
-
-  $scope.animateElementBounceInRight = function($el) {
-    $el.removeClass('not-visible');
-    $el.addClass('animated bounceInRight'); // this example leverages animate.css classes
-  };
-
 });
