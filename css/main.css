@@ -125,6 +125,13 @@ hr.star-primary:after {
     font-weight: 300;
 }
 
+#home .btn-outline {
+    font-size: 20px;
+}
+#home .intro {
+  font-weight: 400;
+}
+
 .main-content.ng-enter {
   animation: fadeIn 1s;
 }
@@ -379,10 +386,6 @@ footer .footer-below {
     background: transparent;
     transition: all 0.3s ease-in-out;
     margin-top: 15px;
-}
-
-#home .btn-outline {
-    font-size: 20px;
 }
 
 .btn-outline:hover, .btn-outline:focus, .btn-outline:active, .btn-outline.active {
