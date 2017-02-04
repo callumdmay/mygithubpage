@@ -13,14 +13,23 @@ var concat = require('gulp-concat');
 
 // Minify compiled CSS
 gulp.task('minify-css', function() {
-    return gulp.src('css/main.css')
+    gulp.src(["node_modules/animate.css/animate.min.css",
+        "node_modules/bootstrap/dist/css/bootstrap.min.css",
+        "node_modules/font-awesome/css/font-awesome.min.css"])
+        .pipe(concat("vendor.min.css"))
+        .pipe(gulp.dest("dist/css"))
+        .pipe(browserSync.reload({
+            stream: true
+        }))
+
+    gulp.src(["css/main.css"])
         .pipe(cleanCSS({
-            compatibility: 'ie8'
+          compatibility: 'ie8'
         }))
         .pipe(rename({
-            suffix: '.min'
+          suffix: '.min'
         }))
-        .pipe(gulp.dest('dist'))
+        .pipe(gulp.dest("dist/css"))
         .pipe(browserSync.reload({
             stream: true
         }))
@@ -36,29 +45,15 @@ gulp.task('clean', function() {
 
 // Copy vendor libraries from /node_modules into /vendor
 gulp.task('copy-vendor', function() {
-    gulp.src(['node_modules/bootstrap/dist/**/*', '!**/npm.js', '!**/bootstrap-theme.*', '!**/*.map'])
-        .pipe(flatten())
-        .pipe(gulp.dest('dist/css'))
-
     gulp.src(['node_modules/angular/angular.min.js', 'node_modules/angular-route/angular-route.min.js',
         "node_modules/angular-animate/angular-animate.min.js"])
         .pipe(flatten())
         .pipe(concat("angular.min.js"))
         .pipe(gulp.dest('dist/'))
 
-    gulp.src([
-            'node_modules/font-awesome/**',
-            '!node_modules/font-awesome/**/*.map',
-            '!node_modules/font-awesome/.npmignore',
-            '!node_modules/font-awesome/*.txt',
-            '!node_modules/font-awesome/*.md',
-            '!node_modules/font-awesome/*.json'
-        ])
-        .pipe(gulp.dest('dist/'))
-
-    gulp.src(['node_modules/animate.css/animate.min.css'])
-        .pipe(flatten())
-        .pipe(gulp.dest('dist/css'))
+    gulp.src(["node_modules/font-awesome/fonts/**"], {
+      base: "node_modules/font-awesome/"
+      }) .pipe(gulp.dest('dist/'))
 
     gulp.src(['vendor/.nojekyll'])
         .pipe(gulp.dest('dist/'))
@@ -78,7 +73,6 @@ gulp.task('copy-assets', function() {
 
     gulp.src('mail/**')
         .pipe(gulp.dest('dist/mail'))
-
 
 });
 
