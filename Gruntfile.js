@@ -10,23 +10,29 @@ module.exports = function(grunt) {
     },
 
     copy: {
-      index: {
+      html: {
         expand: true,
+        cwd: "src",
         flatten: true,
-        src: "src/index.html",
-        dest: "public"
+        src: ["index.html", "404.html"],
+        dest: "dist"
       },
       images: {
         expand: true,
         cwd: "assets/images",
         src: "**",
-        dest: "public/images"
+        dest: "dist/images"
       },
       files: {
         expand: true,
         cwd: "assets",
         src: ["files/**", "favicon.ico"],
-        dest: "dist/files"
+        dest: "dist"
+      },
+      metadata: {
+        expand: true,
+        src: [".nojekyll", "CNAME"],
+        dest: "dist"
       }
     },
 
@@ -56,8 +62,8 @@ module.exports = function(grunt) {
         }
       },
       html: {
-        files: ["src/index.html"],
-        tasks: ["copy:index"],
+        files: ["src/*.html"],
+        tasks: ["copy:html"],
         options: {
           spawn: false
         }
@@ -87,7 +93,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-sass");
 
   grunt.registerTask("default", ["clean"]);
-  grunt.registerTask("copy-assets", ["copy:index", "copy:images", "copy:files"]);
-  grunt.registerTask("build:dev", ["clean", "copy-assets", "copy:server", "sass"]);
-  grunt.registerTask("build:prod", ["clean:public", "copy-assets", "sass", "cssmin"]);
+  grunt.registerTask("build", ["clean", "copy", "sass"]);
 };

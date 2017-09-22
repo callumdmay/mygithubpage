@@ -24,18 +24,17 @@ function config(env) {
     context: path.resolve(__dirname, "./src"),
     entry: "./index",
     output: {
-        path: path.resolve(__dirname, "./public"),
-        filename: "[name].js"
+        path: path.resolve(__dirname, "./dist"),
+        filename: "index.js"
     },
     plugins: plugins,
     module: {
       loaders: [
          {
            test: /\.js$/,
-           loader: loader,
+           loader: "babel-loader",
            include: path.resolve(__dirname, "src")
-         },
-         "babel-loader"
+         }
        ]
     }
   }
