@@ -4,6 +4,8 @@
   background-color: $layout-primary;
   color: $text-primary;
   box-shadow: 0 3px 3px rgba(0,0,0,0.24);
+  position: fixed;
+  top: 0;
 }
 
 .nav-bar-container {
@@ -23,9 +25,19 @@
   font-size: 20px;
   padding: 10px 20px;
   border-radius: 3px;
+  color: $text-secondary;
 
   &:hover {
-    background-color: $layout-accent
+    background-color: $layout-accent;
+    color: $text-primary;
+  }
+
+  &.current {
+    color: $text-primary;
+
+    &:hover {
+      color: $text-primary;
+    }
   }
 }
 

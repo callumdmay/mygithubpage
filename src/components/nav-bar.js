@@ -17,9 +17,13 @@ class NavigationBar extends React.Component {
           <div className="routes">
             {
               this.props.routes.map(route => {
+                let className = "route ";
+                if (route.path === window.location.pathname) {
+                  className = className.concat("current");
+                }
                 return (
                   <a key={route.label} href={route.path}>
-                    <div className="route">
+                    <div className={className}>
                       {route.label}
                     </div>
                   </a>
