@@ -1,0 +1,35 @@
+.nav-bar {
+  width: 100%;
+  height: 60px;
+  background-color: $layout-primary;
+  color: $text-primary;
+  box-shadow: 0 3px 3px rgba(0,0,0,0.24);
+}
+
+.nav-bar-container {
+  height: 100%;
+  margin: 0px 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.routes {
+  display: flex;
+  align-items: center;
+}
+
+.route {
+  font-size: 20px;
+  padding: 10px 20px;
+  border-radius: 3px;
+
+  &:hover {
+    background-color: $layout-accent
+  }
+}
+
+.navbar-title {
+  font-size: 30px;
+  font-family: Italianno,cursive;
+}

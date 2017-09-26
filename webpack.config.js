@@ -3,7 +3,6 @@ const webpack = require("webpack");
 
 function config(env) {
   let plugins = [];
-
   plugins.push(new webpack.DefinePlugin({
      "process.env": {
        "NODE_ENV": JSON.stringify(env)
@@ -11,7 +10,6 @@ function config(env) {
    }));
 
    if (env === "production") {
-     plugins.push(new webpack.HotModuleReplacementPlugin());
      plugins.push(new webpack.optimize.UglifyJsPlugin({
        compressor: {
          warnings: false
@@ -20,9 +18,11 @@ function config(env) {
      plugins.push(new webpack.optimize.OccurrenceOrderPlugin());
    }
 
+   plugins.push(new webpack.HotModuleReplacementPlugin());
+
   return {
     context: path.resolve(__dirname, "./src"),
-    entry: "./index",
+    entry: ["./index", "webpack-hot-middleware/client"],
     output: {
         path: path.resolve(__dirname, "./dist"),
         filename: "index.js"
@@ -32,12 +32,12 @@ function config(env) {
       loaders: [
          {
            test: /\.js$/,
-           loader: "babel-loader",
+           loader: ["react-hot-loader", "babel-loader"],
            include: path.resolve(__dirname, "src")
          }
        ]
     }
-  }
+  };
 }
 
 module.exports = config;

@@ -1,0 +1,14 @@
+.home {
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+
+  .profile-image {
+    border-radius: 50%;
+    display: block;
+    max-width: 400px;
+    max-height: 300px;
+    width: auto;
+    height: auto;
+  }
+}
