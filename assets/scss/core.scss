@@ -3,24 +3,21 @@
 @import "nav-bar";
 @import "home";
 @import "footer";
+@import "components";
 
-
-html {
+html, body {
   height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-body {
   margin: 0;
   padding: 0;
   font-family: "Montserrat";
-  height: 100%;
 }
 
 main {
+  @include medium {
+    margin: 0 40px;
+  }
   @include large-up {
-    margin: 0 250px;
+    margin: 0 20%;
   }
 }
 
@@ -29,8 +26,25 @@ a {
   text-decoration: none;
 }
 
-#react-content {
-  padding-top: 60px;
-  padding-bottom: 70px;
+p {
+  margin: 0;
+}
 
+#react-content, .app {
+  height: 100%;
+}
+
+.wrapper {
+  min-height: 100%;
+	margin-bottom: -90px;
+}
+
+.wrapper:after {
+  content: "";
+  display: block;
+  height: 90px;
+}
+
+.content {
+  padding-top: 60px;
 }

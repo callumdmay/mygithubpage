@@ -41,6 +41,9 @@
   }
 
   .personal-info {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     text-align: center;
     font-weight: 300;
     font-size: 20px;
@@ -48,6 +51,19 @@
       margin-left: 0;
       font-size: 16px;
     }
+  }
 
+  .about {
+    display: flex;
+    @include small {
+      flex-direction: column;
+    }
+
+    p {
+      margin: 20px;
+      @include large-up {
+        text-align: justify;
+      }
+    }
   }
 }

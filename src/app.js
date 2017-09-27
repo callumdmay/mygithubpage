@@ -9,8 +9,12 @@ class App extends React.Component {
   render() {
     return (
       <div className="app">
-        <NavigationBar routes={ROUTES}/>
-        <Main/>
+        <div className="wrapper">
+          <NavigationBar routes={ROUTES}/>
+          <div className="content">
+            <Main/>
+          </div>
+        </div>
         <Footer/>
       </div>
     );

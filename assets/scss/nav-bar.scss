@@ -42,6 +42,9 @@
   padding: 10px 20px;
   border-radius: 3px;
   color: $text-secondary;
+  transition-duration: 0.2s;
+  transition-property: all;
+
   @include medium-down {
     width: 100%;
   }

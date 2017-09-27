@@ -1,4 +1,8 @@
-import React from "react";
+import React, { PropTypes } from "react";
+
+const contextTypes = {
+  is_mobile: PropTypes.bool.isRequired
+};
 
 class Home extends React.Component {
   render () {
@@ -12,13 +16,21 @@ class Home extends React.Component {
           <div className="school">
             {"Computer Engineering Student - McGill University"}
           </div>
-          <div>
-            <p>{"Born in Scotland, grew up in Calgary, and currently residing in Montreal. I am in my fourth year of Computer Engineering at McGill University. Whenever I'm not working, I like to spend my time skiing, playing soccer, and travelling."}</p>
+          <div className="divider"/>
+          <div className="about">
+            <p>
+              {"Born in Scotland, grew up in Calgary, and currently residing in Montreal. I am in my fourth year of Computer Engineering at McGill University. Whenever I'm not working, I like to spend my time skiing, playing soccer, and travelling."}
+            </p>
+            <p>
+              {"I enjoy working in a full stack environment, but currently I'm very interested in Machine Learning, especially in the field of Computer Vision. If you wish to know more please checkout my resume below."}
+            </p>
           </div>
+          <a className="button" href="http://github.com/callumdmay">GitHub</a>
         </div>
       </div>
     );
   }
 }
 
+Home.contextTypes = contextTypes;
 export default Home;
