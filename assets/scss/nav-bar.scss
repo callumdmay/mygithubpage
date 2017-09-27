@@ -1,6 +1,9 @@
 .nav-bar {
   width: 100%;
   height: 60px;
+  @include medium-down {
+    height: auto;
+  }
   background-color: $layout-primary;
   color: $text-primary;
   box-shadow: 0 3px 3px rgba(0,0,0,0.24);
@@ -11,14 +14,27 @@
 .nav-bar-container {
   height: 100%;
   margin: 0px 100px;
+  @include medium-down {
+    margin: 0;
+    flex-direction: column;
+  }
+
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
 .routes {
-  display: flex;
-  align-items: center;
+  display: inline-flex;
+  @include large-up {
+    align-items: center;
+  }
+
+  @include medium-down {
+    width: 100%;
+    flex-direction: column;
+    background-color: $layout-primary;
+  }
 }
 
 .route {
@@ -26,11 +42,15 @@
   padding: 10px 20px;
   border-radius: 3px;
   color: $text-secondary;
+  @include medium-down {
+    width: 100%;
+  }
 
-  &:hover {
+  &:hover, :active {
     background-color: $layout-accent;
     color: $text-primary;
   }
+
 
   &.current {
     color: $text-primary;
@@ -44,4 +64,20 @@
 .navbar-title {
   font-size: 30px;
   font-family: Italianno,cursive;
+  @include medium-down {
+    display: none;
+  }
+}
+
+.mobile-nav-menu-item {
+  @include large-up {
+    display: none;
+  }
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  svg {
+    padding: 15px;
+    fill: $text-primary;
+  }
 }

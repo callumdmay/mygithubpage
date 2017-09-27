@@ -1,5 +1,6 @@
 import Home from "./components/home";
 import Portfolio from "./components/portfolio";
+import Contact from "./components/contact";
 
 export const ROUTES = [
   {
@@ -13,14 +14,8 @@ export const ROUTES = [
     component: Portfolio
   },
   {
-    label: "About",
-    path: "/about",
-    component: "About"
-
-  },
-  {
     label: "Contact",
     path: "/contact",
-    component: "Contact"
+    component: Contact
   }
 ];
