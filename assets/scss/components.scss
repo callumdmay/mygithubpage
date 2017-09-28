@@ -6,6 +6,7 @@
   margin: 10px;
   transition-duration: 0.3s;
   transition-property: all;
+
   &:hover {
     background-color: $layout-secondary;
     color: $text-primary;
@@ -18,9 +19,10 @@
   align-self: center;
   padding: 10px 0;
   border-bottom: 4px solid $layout-accent;
-  width: 200px;
+  margin-bottom: 20px;
+  width: 250px;
 
   @include medium-down {
-    width: 100px;
+    width: 200px;
   }
 }
