@@ -25,6 +25,7 @@ module.exports = function(grunt) {
       },
       files: {
         expand: true,
+        flatten: true,
         cwd: "assets",
         src: ["files/**", "favicon.ico"],
         dest: "dist"
