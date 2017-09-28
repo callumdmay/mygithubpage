@@ -1,4 +1,5 @@
 import React, { PropTypes } from "react";
+import classNames from "classnames";
 
 const propTypes = {
     routes: PropTypes.array.isRequired
@@ -18,19 +19,13 @@ class NavigationBar extends React.Component {
 
   render () {
     return (
-      <nav className="nav-bar">
+      <nav className={classNames("nav-bar", {
+          "mobile": this.context.is_mobile
+        }
+        )}>
         <div className="nav-bar-container">
-          <a className="navbar-title" href="/">
-            {"Callum May"}
-          </a>
-          <div
-            className="mobile-nav-menu-item"
-            onClick={() => this._toggleMenu()}
-            >
-            <svg width="25" height="25" viewBox="0 0 1792 1792" >
-              <path d="M1664 1344v128q0 26-19 45t-45 19h-1408q-26 0-45-19t-19-45v-128q0-26 19-45t45-19h1408q26 0 45 19t19 45zm0-512v128q0 26-19 45t-45 19h-1408q-26 0-45-19t-19-45v-128q0-26 19-45t45-19h1408q26 0 45 19t19 45zm0-512v128q0 26-19 45t-45 19h-1408q-26 0-45-19t-19-45v-128q0-26 19-45t45-19h1408q26 0 45 19t19 45z"/>
-            </svg>
-          </div>
+          {this._renderNavbarTitle()}
+          {this._rendermobileNav()}
           {
             (this.context.is_mobile && this.state.open) || !this.context.is_mobile ?
               (
@@ -59,6 +54,33 @@ class NavigationBar extends React.Component {
           }
         </div>
       </nav>
+    );
+  }
+
+  _renderNavbarTitle() {
+    if (this.context.is_mobile) {
+      return null;
+    }
+    return (
+      <a className="navbar-title" href="/">
+        {"Callum May"}
+      </a>
+    );
+  }
+
+  _rendermobileNav() {
+    if (!this.context.is_mobile) {
+      return null;
+    }
+    return (
+      <div
+        className="mobile-nav-menu-item"
+        onClick={() => this._toggleMenu()}
+        >
+        <svg width="25" height="25" viewBox="0 0 1792 1792" >
+          <path d="M1664 1344v128q0 26-19 45t-45 19h-1408q-26 0-45-19t-19-45v-128q0-26 19-45t45-19h1408q26 0 45 19t19 45zm0-512v128q0 26-19 45t-45 19h-1408q-26 0-45-19t-19-45v-128q0-26 19-45t45-19h1408q26 0 45 19t19 45zm0-512v128q0 26-19 45t-45 19h-1408q-26 0-45-19t-19-45v-128q0-26 19-45t45-19h1408q26 0 45 19t19 45z"/>
+        </svg>
+      </div>
     );
   }
 
