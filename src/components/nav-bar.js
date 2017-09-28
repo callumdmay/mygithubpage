@@ -24,8 +24,10 @@ class NavigationBar extends React.Component {
         }
         )}>
         <div className="nav-bar-container">
-          {this._renderNavbarTitle()}
-          {this._rendermobileNav()}
+          <div className="mobile-nav">
+            {this._renderNavbarTitle()}
+            {this._rendermobileNav()}
+          </div>
           {
             (this.context.is_mobile && this.state.open) || !this.context.is_mobile ?
               (
@@ -58,9 +60,6 @@ class NavigationBar extends React.Component {
   }
 
   _renderNavbarTitle() {
-    if (this.context.is_mobile) {
-      return null;
-    }
     return (
       <a className="navbar-title" href="/">
         {"Callum May"}
@@ -74,7 +73,7 @@ class NavigationBar extends React.Component {
     }
     return (
       <div
-        className="mobile-nav-menu-item"
+        className="mobile-nav-menu-icon"
         onClick={() => this._toggleMenu()}
         >
         <svg width="25" height="25" viewBox="0 0 1792 1792" >

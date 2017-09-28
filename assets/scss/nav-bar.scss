@@ -45,8 +45,14 @@
   }
 }
 
-.mobile-nav-menu-item {
+.mobile-nav {
   width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mobile-nav-menu-icon {
   display: flex;
   justify-content: flex-end;
   svg {
@@ -60,8 +66,14 @@
   font-family: Italianno, cursive;
 }
 
+//MOBILE
 .nav-bar.mobile {
   height: auto;
+
+  .navbar-title {
+    font-size: 24px;
+    margin-left: 20px;
+  }
 
   .nav-bar-container {
     margin: 0;
