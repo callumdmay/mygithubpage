@@ -95,4 +95,5 @@ module.exports = function(grunt) {
 
   grunt.registerTask("default", ["clean"]);
   grunt.registerTask("build", ["clean", "copy", "sass"]);
+  grunt.registerTask("build:prod", ["clean", "copy", "sass", "cssmin"]);
 };
