@@ -12,9 +12,9 @@ class Home extends React.Component {
           <img className="profile-image" src="images/profile.png" alt="Profile Picture" width="400px"/>
         </div>
         <div className="personal-info">
-          <div className="name">
+          <h2 className="name">
             {"Callum May"}
-          </div>
+          </h2>
           <div className="school">
             {"Computer Engineering Student - McGill University"}
           </div>

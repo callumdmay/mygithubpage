@@ -1,33 +1,20 @@
-@import "colours";
 @import "device-layout";
+@import "colours";
+@import "overrides";
 @import "nav-bar";
 @import "home";
 @import "footer";
 @import "components";
+@import "contact";
 
-html, body {
-  height: 100%;
+h2 {
+  font-size: 50px;
+  font-weight: bold;
+  padding: 10px;
   margin: 0;
-  padding: 0;
-  font-family: "Lato";
-}
-
-main {
-  @include medium {
-    margin: 0 40px;
+  @include medium-down {
+    font-size: 34px;
   }
-  @include large-up {
-    margin: 0 20%;
-  }
-}
-
-a {
-  color: $text-primary;
-  text-decoration: none;
-}
-
-p {
-  margin: 0;
 }
 
 #react-content, .app {
