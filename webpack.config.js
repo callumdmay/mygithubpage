@@ -3,6 +3,8 @@ const webpack = require("webpack");
 
 function config(env) {
   let plugins = [];
+  let entry = ["./index"];
+
   plugins.push(new webpack.DefinePlugin({
      "process.env": {
        "NODE_ENV": JSON.stringify(env)
@@ -16,13 +18,14 @@ function config(env) {
        }
      }));
      plugins.push(new webpack.optimize.OccurrenceOrderPlugin());
+   } else {
+     entry.push("webpack-hot-middleware/client");
+     plugins.push(new webpack.HotModuleReplacementPlugin());
    }
-
-   plugins.push(new webpack.HotModuleReplacementPlugin());
 
   return {
     context: path.resolve(__dirname, "./src"),
-    entry: ["./index", "webpack-hot-middleware/client"],
+    entry: entry,
     output: {
         path: path.resolve(__dirname, "./dist"),
         filename: "index.js"
