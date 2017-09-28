@@ -4,6 +4,7 @@
   "author": "Callum May",
   "dependencies": {
     "classnames": "^2.2.5",
+    "concurrently": "^3.5.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-router": "^4.2.0",
@@ -37,8 +38,7 @@
     "url": "https://github.com/callumdmay/mygithubpage.git"
   },
   "scripts": {
-    "start": "node src/server.js",
-    "build": "grunt build && grunt watch",
+    "start": "grunt build && concurrently -k -r \"node src/server.js\" \"grunt watch\"",
     "build:prod": "grunt build:prod && webpack -p --progress --colors --env=production",
     "deploy": "npm run build:prod && webpack  gh-pages -d dist -t true"
   },
