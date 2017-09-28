@@ -10,10 +10,11 @@
   transition-duration: 0.3s;
   transition-property: all;
   font-weight: normal;
-  
+
   svg {
     padding-right: 5px;
     transition-duration: 0.3s;
+    fill: $layout-secondary;
     transition-property: all;
   }
 

@@ -36,13 +36,13 @@ p {
 
 .wrapper {
   min-height: 100%;
-	margin-bottom: -90px;
+	margin-bottom: -128px;
 }
 
 .wrapper:after {
   content: "";
   display: block;
-  height: 90px;
+  height: 128px;
 }
 
 .content {
