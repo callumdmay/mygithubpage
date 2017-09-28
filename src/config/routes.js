@@ -1,6 +1,6 @@
-import Home from "./components/home";
-import Portfolio from "./components/portfolio";
-import Contact from "./components/contact";
+import Home from "../components/home";
+import Portfolio from "../components/portfolio";
+import Contact from "../components/contact";
 
 export const ROUTES = [
   {

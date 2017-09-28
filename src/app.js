@@ -2,7 +2,7 @@ import React, { PropTypes } from "react";
 import { Switch, Route } from "react-router-dom";
 
 import NavigationBar from "./components/nav-bar";
-import { ROUTES } from "./routes";
+import { ROUTES } from "./config/routes";
 import Footer from "./components/footer";
 
 class App extends React.Component {
