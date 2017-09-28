@@ -1,6 +1,11 @@
-import React from "react";
+import React, { PropTypes } from "react";
+import classNames from "classnames";
 
 import { PROJECTS } from "../constants/projects";
+
+const contextTypes = {
+  is_mobile: PropTypes.bool.isRequired
+};
 
 class Portfolio extends React.Component {
   render () {
@@ -16,7 +21,7 @@ class Portfolio extends React.Component {
             <div className="project-metadata">
               {project.link}
               <div>
-                {"Language: "}
+                {"Language(s): "}
                 <b>{project.language}</b>
               </div>
             </div>
@@ -25,11 +30,14 @@ class Portfolio extends React.Component {
       </div>
     ));
     return (
-      <div className="portfolio">
+      <div className={classNames("portfolio", {
+          "mobile": this.context.is_mobile
+        })}>
         {portfolio}
       </div>
     );
   }
 }
 
+Portfolio.contextTypes = contextTypes;
 export default Portfolio;
