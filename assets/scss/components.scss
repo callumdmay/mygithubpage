@@ -1,4 +1,7 @@
 .button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   border: 2px solid $layout-secondary;
   border-radius: 7px;
   color: $layout-secondary;
@@ -7,9 +10,18 @@
   transition-duration: 0.3s;
   transition-property: all;
 
+  svg {
+    padding-right: 5px;
+    transition-duration: 0.3s;
+    transition-property: all;
+  }
+
   &:hover {
     background-color: $layout-secondary;
     color: $text-primary;
+    svg {
+      fill: $text-primary;
+    }
   }
 }
 
