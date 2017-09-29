@@ -1,0 +1,38 @@
+@import "device-layout";
+@import "colours";
+@import "overrides";
+@import "nav-bar";
+@import "home";
+@import "footer";
+@import "components";
+@import "contact";
+@import "portfolio";
+
+h2 {
+  font-size: 50px;
+  font-weight: bold;
+  padding: 10px;
+  margin: 0;
+  @include medium-down {
+    font-size: 34px;
+  }
+}
+
+#react-content, .app {
+  height: 100%;
+}
+
+.wrapper {
+  min-height: 100%;
+	margin-bottom: -128px;
+}
+
+.wrapper:after {
+  content: "";
+  display: block;
+  height: 128px;
+}
+
+.content {
+  padding-top: 60px;
+}

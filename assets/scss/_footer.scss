@@ -1,0 +1,50 @@
+.footer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 10px;
+  background-color: $layout-primary;
+  color: $text-primary;
+  text-align: center;
+  height: 108px;
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px
+}
+
+.footer-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid $text-primary;
+  padding: 10px;
+  border-radius: 100%;
+  width: 29px;
+  height: 29px;
+  margin: 10px;
+  transition-duration: 0.3s;
+  transition-property: all;
+
+  &:hover {
+      background-color: $text-primary;
+      svg {
+        fill: $layout-secondary;
+      }
+  }
+
+  svg {
+    transition-duration: 0.3s;
+    transition-property: all;
+    fill: $text-primary;
+  }
+
+}
+
+.copyright {
+  font-size: 12px;
+}

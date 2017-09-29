@@ -1,0 +1,42 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 2px solid $layout-secondary;
+  border-radius: 7px;
+  color: $layout-secondary;
+  padding: 10px;
+  margin: 10px;
+  transition-duration: 0.3s;
+  transition-property: all;
+  font-weight: normal;
+
+  svg {
+    padding-right: 5px;
+    transition-duration: 0.3s;
+    fill: $layout-secondary;
+    transition-property: all;
+  }
+
+  &:hover {
+    background-color: $layout-secondary;
+    color: $text-primary;
+    svg {
+      fill: $text-primary;
+    }
+  }
+}
+
+.divider {
+  width: 100%;
+  display: flex;
+  align-self: center;
+  padding: 10px 0;
+  border-bottom: 4px solid $layout-accent;
+  margin-bottom: 20px;
+  width: 250px;
+
+  @include medium-down {
+    width: 200px;
+  }
+}
