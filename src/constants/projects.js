@@ -1,29 +1,10 @@
 import React from "react";
-import Slider from "react-slick";
-
-const settings = {
-      dots: true,
-      infinite: true,
-      speed: 300,
-      arrows: false,
-      autoplay: true,
-      autoplaySpeed: 4000,
-      slidesToShow: 1
-};
-// asset: (
-//   <Slider {...settings}>
-//     <div><img src="images/elevate1.png" /></div>
-//     <div><img src="images/elevate2.png" /></div>
-//     <div><img src="images/elevate3.png" /></div>
-//     <div><img src="images/elevate4.png" /></div>
-//     <div><img src="images/elevate5.png" /></div>
-//   </Slider>
-// ),
 
 export const PROJECTS = [
   {
     title: "Elevate",
     description: "A new tab extension for Chrome designed to improve productivity. Leverages Unsplash's photo API to provide beautiful, customizable background photos each hour. Includes common productivity tools like a notepad and task list.",
+    asset: <img src="images/portfolio/elevate.gif" alt="Elevate"/>,
     link: (
       <a href="https://chrome.google.com/webstore/detail/elevate/dikncijdjlfaiomadigeenilfpgjabch">
         <img src="images/webstore.png" width="180"/>

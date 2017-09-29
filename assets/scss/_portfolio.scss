@@ -23,7 +23,6 @@
     justify-content: space-between;
   }
 
-
   .description {
     display: flex;
     flex-direction: column;
@@ -38,11 +37,6 @@
     max-width: 450px;
     min-height: 0;
     min-width: 0;
-
-    * {
-      min-height: 0;
-      min-width: 0;
-    }
 
     img {
       max-width: 100%;
@@ -72,10 +66,17 @@
     }
   }
 
+  .carousel-slider {
+    margin: 0 auto;
+    padding: 10px;
+  }
 }
 
 //MOBILE
 .portfolio.mobile {
+  .project {
+    margin: 20px 5px;
+  }
   .content {
     align-items: center;
     flex-direction: column;
