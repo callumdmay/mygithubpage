@@ -1,5 +1,6 @@
 import React, { PropTypes } from "react";
 import classNames from "classnames";
+import { Link } from "react-router-dom";
 
 const propTypes = {
     routes: PropTypes.array.isRequired
@@ -39,14 +40,14 @@ class NavigationBar extends React.Component {
                         className = className.concat("current");
                       }
                       return (
-                        <a
+                        <Link
                           key={route.label}
-                          href={route.path}
+                          to={route.path}
                           className={className}
                           onClick={() => this._toggleMenu(false)}
                           >
                           {route.label}
-                        </a>
+                        </Link>
                       );
                     })
                   }
