@@ -1,4 +1,3 @@
-
 module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON("package.json"),
@@ -14,7 +13,9 @@ module.exports = function(grunt) {
         expand: true,
         cwd: "src",
         flatten: true,
-        src: ["index.html", "404.html"],
+        src: [
+          "index.html", "404.html"
+        ],
         dest: "dist"
       },
       images: {
@@ -27,12 +28,16 @@ module.exports = function(grunt) {
         expand: true,
         flatten: true,
         cwd: "assets",
-        src: ["files/**", "favicon.ico"],
+        src: [
+          "files/**", "favicon.ico"
+        ],
         dest: "dist"
       },
       metadata: {
         expand: true,
-        src: [".nojekyll", "CNAME"],
+        src: [
+          ".nojekyll", "CNAME"
+        ],
         dest: "dist"
       }
     },
@@ -49,6 +54,17 @@ module.exports = function(grunt) {
 
     cssmin: {
       css: {
+        expand: true,
+        src: ["dist/core.css"],
+        ext: ".css"
+      }
+    },
+
+    postcss: {
+      options: {
+        processors: [require("autoprefixer")]
+      },
+      dist: {
         expand: true,
         src: ["dist/core.css"],
         ext: ".css"
@@ -92,8 +108,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-contrib-watch");
   grunt.loadNpmTasks("grunt-contrib-cssmin");
   grunt.loadNpmTasks("grunt-sass");
+  grunt.loadNpmTasks("grunt-postcss");
 
   grunt.registerTask("default", ["clean"]);
   grunt.registerTask("build", ["clean", "copy", "sass"]);
-  grunt.registerTask("build:prod", ["clean", "copy", "sass", "cssmin"]);
+  grunt.registerTask("build:prod", ["clean", "copy", "sass", "postcss", "cssmin"]);
 };
