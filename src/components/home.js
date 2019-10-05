@@ -16,15 +16,12 @@ class Home extends React.Component {
             {"Callum May"}
           </h2>
           <div className="school">
-            {"Computer Engineering Student - McGill University"}
+            {"Software Engineer "}
           </div>
           <div className="divider"/>
           <div className="about">
             <p>
-              {"Born in Scotland, grew up in Calgary, and currently residing in Montreal. I am in my graduating year of Computer Engineering at McGill University. Whenever I'm not working, I like to spend my time skiing, playing soccer, and travelling."}
-            </p>
-            <p>
-              {"I enjoy working in a full stack environment, and am also very interested in Machine Learning, especially in the field of Computer Vision. If you want to know more please checkout my resume below."}
+              {"Born in Scotland, grew up in Calgary, and currently residing in Seattle. Currently working to move the web forward on the Microsoft Edge team at Microsoft. Whenever I'm not working, I like to spend my time skiing, playing soccer, and travelling."}
             </p>
           </div>
           <div style={{ display: "flex" }}>
